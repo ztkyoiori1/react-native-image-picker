@@ -278,13 +278,13 @@ public class ImagePickerModule extends ReactContextBaseJavaModule
     // Workaround for Android bug.
     // grantUriPermission also needed for KITKAT,
     // see https://code.google.com/p/android/issues/detail?id=76683
-    if (Build.VERSION.SDK_INT <= Build.VERSION_CODES.KITKAT) {
-      List<ResolveInfo> resInfoList = reactContext.getPackageManager().queryIntentActivities(cameraIntent, PackageManager.MATCH_DEFAULT_ONLY);
-      for (ResolveInfo resolveInfo : resInfoList) {
-        String packageName = resolveInfo.activityInfo.packageName;
-        reactContext.grantUriPermission(packageName, cameraCaptureURI, Intent.FLAG_GRANT_WRITE_URI_PERMISSION | Intent.FLAG_GRANT_READ_URI_PERMISSION);
-      }
-    }
+    // if (Build.VERSION.SDK_INT <= Build.VERSION_CODES.KITKAT) {
+//       List<ResolveInfo> resInfoList = reactContext.getPackageManager().queryIntentActivities(cameraIntent, PackageManager.MATCH_DEFAULT_ONLY);
+//       for (ResolveInfo resolveInfo : resInfoList) {
+//         String packageName = resolveInfo.activityInfo.packageName;
+//         reactContext.grantUriPermission(packageName, cameraCaptureURI, Intent.FLAG_GRANT_WRITE_URI_PERMISSION | Intent.FLAG_GRANT_READ_URI_PERMISSION);
+//       }
+//     }
 
     try
     {
